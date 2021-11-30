@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_29_180048) do
+ActiveRecord::Schema.define(version: 2021_11_29_193638) do
 
   create_table "taxpayers", force: :cascade do |t|
-    t.integer "ird_no"
-    t.integer "old_ird_no"
+    t.string "ird_no"
+    t.string "old_ird_no"
     t.string "first_name"
     t.string "middle_name"
     t.string "last_name"
