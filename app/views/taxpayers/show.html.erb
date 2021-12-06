@@ -10,3 +10,9 @@
 <p><strong> Active Status: </strong></p> <%= @taxpayer.active_status %>
 <p><strong> Created At:: </strong></p> <%= @taxpayer.created_at %>
 <p><strong> Updated At:: </strong></p> <%= @taxpayer.updated_at %>
+
+<p>
+<%= link_to "Edit taxpayer", edit_taxpayer_path(@taxpayer) %> |
+<%= link_to "Delete taxpayer", taxpayer_path(@taxpayer), method: :delete, data: { confirm: "Are you sure?" } %> |
+<%= link_to "Return to taxpayers listing", taxpayers_path %>
+</p>
