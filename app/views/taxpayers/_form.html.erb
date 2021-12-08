@@ -1,13 +1,6 @@
-
-
-<% if @taxpayer.errors.any? %>
-    <h2>The following errors prevented the taxpayer from bieng saved: </h2>
-    <ul>
-    <%@taxpayer.errors.full_messages.each do |msg| %>
-        <li><%=msg%></li>
-    <%end%>
-    </ul>
-<% end %>
+<div class="col-10">
+    <%= render 'shared/errors' %>
+</div>
 
 
 <%= form_with(model: @taxpayer, local: true ) do |f| %>

@@ -1,18 +1,33 @@
-<h1> Taxpayer Information </h1>
+<div class="container">
+    <h1 class="mt-4"> Taxpayer Information </h1></br>
+    
+    <!--<p><strong> IRD No: </strong></p> <%= @taxpayer.ird_no %>
+    <p><strong> Old IRD No: </strong></p> <%= @taxpayer.old_ird_no %>
+    <p><strong> First Name: </strong></p> <%= @taxpayer.first_name %>
+    <p><strong> Middle Name: </strong></p> <%= @taxpayer.middle_name %>
+    <p><strong> Surname: </strong></p> <%= @taxpayer.last_name %>
+    <p><strong> Address: </strong></p> <%= @taxpayer.address %>
+    <p><strong> Entity Type: </strong></p> <%= @taxpayer.entity_type %>
+    <p><strong> Active Status: </strong></p> <%= @taxpayer.active_status %>
+    <p><strong> Created At:: </strong></p> <%= @taxpayer.created_at %>
+    <p><strong> Updated At:: </strong></p> <%= @taxpayer.updated_at %>-->
+    
+    
+    <div class="card mt-4" style="width: 50rem;">
+        <div class="card-body">
+            <h5 class="card-title"><%= @taxpayer.first_name %>  <%= @taxpayer.middle_name %>  <%= @taxpayer.last_name %></h5></br>
+            <h6 class="card-subtitle mb-2 text-muted">IRD Number: <%= @taxpayer.ird_no %> | Old IRD Number: <%= @taxpayer.old_ird_no %></h6></br>
+            <h6 class="card-subtitle mb-2 text-muted">Address: <%= @taxpayer.address %></h6></br>
+            <p class="card-text">Created on: <%= @taxpayer.created_at %></p>
+            <p class="card-text">Last updated on: <%= @taxpayer.updated_at %></p>
+            <%= link_to 'Edit', edit_taxpayer_path(@taxpayer), class:"btn btn-outline-primary btn-sm" %>
+            <%= link_to 'Delete', taxpayer_path(@taxpayer), class:"btn btn-danger btn-sm", method: :delete, data: { confirm: "Are you sure?" } %>
+          </div>
+        </div></br>
+        
+    <p>
+        <%= link_to "Return to taxpayers listing", taxpayers_path %>
+    </p>
+        
 
-<p><strong> IRD No: </strong></p> <%= @taxpayer.ird_no %>
-<p><strong> Old IRD No: </strong></p> <%= @taxpayer.old_ird_no %>
-<p><strong> First Name: </strong></p> <%= @taxpayer.first_name %>
-<p><strong> Middle Name: </strong></p> <%= @taxpayer.middle_name %>
-<p><strong> Surname: </strong></p> <%= @taxpayer.last_name %>
-<p><strong> Address: </strong></p> <%= @taxpayer.address %>
-<p><strong> Entity Type: </strong></p> <%= @taxpayer.entity_type %>
-<p><strong> Active Status: </strong></p> <%= @taxpayer.active_status %>
-<p><strong> Created At:: </strong></p> <%= @taxpayer.created_at %>
-<p><strong> Updated At:: </strong></p> <%= @taxpayer.updated_at %>
-
-<p>
-<%= link_to "Edit taxpayer", edit_taxpayer_path(@taxpayer) %> |
-<%= link_to "Delete taxpayer", taxpayer_path(@taxpayer), method: :delete, data: { confirm: "Are you sure?" } %> |
-<%= link_to "Return to taxpayers listing", taxpayers_path %>
-</p>
+</div>
