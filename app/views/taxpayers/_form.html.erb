@@ -11,51 +11,68 @@
 
 
 <%= form_with(model: @taxpayer, local: true ) do |f| %>
-
-<p> 
-<%= f.label 'IRD No' %>
-<%= f.text_field :ird_no %>
-</p>
-
-<p> 
-<%= f.label 'Old IRD No' %>
-<%= f.text_field :old_ird_no %>
-</p>
-
-<p> 
-<%= f.label 'First Name' %>
-<%= f.text_field :first_name %>
-</p>
-
-<p> 
-<%= f.label 'Middle Name' %>
-<%= f.text_field :middle_name %>
-</p>
-
-<p> 
-<%= f.label 'Last Name' %>
-<%= f.text_field :last_name %>
-</p>
-
-<p> 
-<%= f.label 'Address' %>
-<%= f.text_field :address %>
-</p>
-
-
-<!--<p> <%= f.label 'Entity Type' %> <%= f.text_field :entity_type %> </p> -->
-<p>
-<%= f.label 'Entity Type' %>
-<%= f.select :entity_type, ['Government', 'Private', 'Self-Employed']%>
-</p>
-
-<p>
-<%= f.label 'Active Status' %>
-<%= f.select :active_status, ['Active', 'Inactive']%>
-</p>
-
-<p>
-    <%= f.submit %>
-</p>
+    <div class="form-row">
+        <div class="col-md-3 mb-3">
+            <p> 
+            <%= f.label 'IRD No' %>
+            <%= f.text_field :ird_no,  style: 'display: block;'%>
+            </p>
+        </div>
+        <div class="col-md-3 mb-3">
+            <p> 
+            <%= f.label 'Old IRD No' %>
+            <%= f.text_field :old_ird_no,  style: 'display: block;' %>
+            </p>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-3 mb-3">
+            <p> 
+            <%= f.label 'First Name' %>
+            <%= f.text_field :first_name,  style: 'display: block;' %>
+            </p>
+        </div>
+        <div class="col-md-3 mb-3">
+            <p> 
+            <%= f.label 'Middle Name' %>
+            <%= f.text_field :middle_name,  style: 'display: block;' %>
+            </p>
+        </div>
+        <div class="col-md-3 mb-3">
+            <p> 
+            <%= f.label 'Last Name' %>
+            <%= f.text_field :last_name,  style: 'display: block;' %>
+            </p>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-3 mb-3">
+            <p> 
+            <%= f.label 'Address' %>
+            <%= f.text_field :address %>
+            </p>
+        </div>
+    </div>
+    
+   <div class="form-row">
+        <div class="col-md-3 mb-3">
+            <p>
+            <%= f.label 'Entity Type' %>
+            <%= f.select :entity_type, ['Government', 'Private', 'Self-Employed']%>
+            </p>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-3 mb-3">
+            <p>
+            <%= f.label 'Active Status' %>
+            <%= f.select :active_status, ['Active', 'Inactive']%>
+            </p>
+        </div>
+    </div>
+    
+    <p>
+        <%= f.submit %>
+    </p>
 
 <% end %>

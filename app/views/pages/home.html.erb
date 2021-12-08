@@ -1,4 +1,103 @@
-<h1> Hello World!! B) </h1>
 
-<p><%= link_to "Articles listing", taxpayers_path %></p>
-<p><%= link_to "About page", about_path %></p>
+<div class="container" id="home-container">
+    <p>OVERVIEW</p>
+    <h2>Dashboard</h2><br/>
+    
+    
+  <div class="col-md-4">
+    <div class="card card-sm">
+      <div class="card-body">
+        <div class="row align-items-center">
+          <div class="col-auto">
+            <span class="badge-primary p-2 pt-4 pb-4 rounded center">
+              <!--<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2"></path><path d="M12 3v3m0 12v3"></path></svg>-->
+              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-file-person" viewBox="0 0 16 16">
+                <path d="M12 1a1 1 0 0 1 1 1v10.755S12 11 8 11s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/>
+                <path d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+              </svg>
+            </span>
+          </div>
+          <div class="col">
+            <div class="font-weight-medium">
+              <%= Taxpayer.count %>
+            </div>
+            <div class="text-muted">
+              Total Taxpayers
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-4">
+    <div class="card card-sm">
+      <div class="card-body">
+        <div class="row align-items-center">
+          <div class="col">
+            <div class="font-weight-medium">
+              <%= Taxpayer.where(active_status: 'Active').count %>
+            </div>
+            <div class="text-muted">
+              Active Taxpayers
+            </div>
+          </div>
+          <div class="col">
+            <div class="font-weight-medium">
+              <%= Taxpayer.where(active_status: 'Inactive').count %>
+            </div>
+            <div class="text-muted">
+              Inactive Taxpayers
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="row row-cards mt-4">
+    <div class="col-md-5">
+      <div class="card" style="height: calc(24rem + 10px)">
+        <div class="card-body card-body-scrollable card-body-scrollable-shadow">
+          <h3 class="card-title">Recent Taxpayers</h3>
+          <div class="card-subtitle">
+            Showing recent taxpayers
+          </div>
+          <div class="divide-y">
+            <% Taxpayer.last(10).reverse.each do |taxpayer| %>
+              <div>
+                <div class="row">
+                  <div class="col-auto">
+                    
+                  </div>
+                  <div class="col">
+                    <div class="text-truncate">
+                      <%= link_to "#{taxpayer.first_name} #{taxpayer.middle_name} #{taxpayer.last_name}", taxpayer_path(taxpayer) %><br>
+                    </div>
+                  </div>
+                  <div class="col-auto">
+                  </div>
+                </div><!--/.row-->
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div><!--/.card-->
+    </div><!--col-->
+  </div><!--/.row-->
+    
+    
+    
+    
+  <!-- <div class="jumbotron mt-5">
+    <h1 class="display-4">Hello, world!</h1>
+    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    <hr class="my-4">
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </div> -->
+  <br>
+  <p><%= link_to "Taxpayer listing", taxpayers_path %> | <%= link_to "About this application", about_path %></p>
+</div>

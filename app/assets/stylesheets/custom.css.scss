@@ -1,0 +1,41 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+.navbar {
+
+background-color: #fff !important;
+
+}
+
+.container{
+    flex: auto !important;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content{
+    display: block !important;
+}
+
+#logo {
+    float: left;
+    color: black;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+#home-container{
+    margin-top: 50px;
+}
