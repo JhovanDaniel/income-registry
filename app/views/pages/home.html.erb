@@ -36,7 +36,7 @@
         <div class="row align-items-center">
           <div class="col">
             <div class="font-weight-medium">
-              <%= Taxpayer.where(active_status: 'Active').count %>
+              <%= Taxpayer.where(activity_status: 'Active').count %>
             </div>
             <div class="text-muted">
               Active Taxpayers
@@ -44,7 +44,7 @@
           </div>
           <div class="col">
             <div class="font-weight-medium">
-              <%= Taxpayer.where(active_status: 'Inactive').count %>
+              <%= Taxpayer.where(activity_status: 'Inactive').count %>
             </div>
             <div class="text-muted">
               Inactive Taxpayers

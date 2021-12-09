@@ -17,7 +17,7 @@
               </div>
               <div class="col">
                 <div class="font-weight-medium">
-                  <%= Taxpayer.where(active_status: 'Active').count %>
+                  <%= Taxpayer.where(activity_status: 'Active').count %>
                 </div>
                 <div class="text-muted">
                   Active Taxpayers
@@ -44,7 +44,7 @@
         </tr>
       </thead>
         <tbody>
-            <% Taxpayer.where(active_status: 'Active').each do |taxpayer| %>
+            <% Taxpayer.where(activity_status: 'Active').each do |taxpayer| %>
             <tr>
                 <td> <%= taxpayer.ird_no %> </td>
                 <td> <%= taxpayer.old_ird_no %></td>
@@ -53,7 +53,7 @@
                 <td><%= taxpayer.last_name %></td>
                 <td><%= taxpayer.address %></td>
                 <td><%= taxpayer.entity_type %></td>
-                <td><%= taxpayer.active_status %></td>
+                <td><%= taxpayer.activity_status %></td>
                 <td><%= link_to "View", taxpayer_path(taxpayer), class:"btn btn-outline-primary btn-sm" %></td>
                 <td><%= link_to 'Edit', edit_taxpayer_path(taxpayer), class:"btn btn-outline-primary btn-sm" %></td>
                 <td><%= link_to 'Delete', taxpayer_path(taxpayer), class:"btn btn-danger btn-sm", method: :delete, data: { confirm: "Are you sure?" } %></td>

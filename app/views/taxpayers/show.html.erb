@@ -8,7 +8,7 @@
     <p><strong> Surname: </strong></p> <%= @taxpayer.last_name %>
     <p><strong> Address: </strong></p> <%= @taxpayer.address %>
     <p><strong> Entity Type: </strong></p> <%= @taxpayer.entity_type %>
-    <p><strong> Active Status: </strong></p> <%= @taxpayer.active_status %>
+    <p><strong> Active Status: </strong></p> <%= @taxpayer.activity_status %>
     <p><strong> Created At:: </strong></p> <%= @taxpayer.created_at %>
     <p><strong> Updated At:: </strong></p> <%= @taxpayer.updated_at %>-->
     
@@ -18,6 +18,8 @@
             <h5 class="card-title"><%= @taxpayer.first_name %>  <%= @taxpayer.middle_name %>  <%= @taxpayer.last_name %></h5></br>
             <h6 class="card-subtitle mb-2 text-muted">IRD Number: <%= @taxpayer.ird_no %> | Old IRD Number: <%= @taxpayer.old_ird_no %></h6></br>
             <h6 class="card-subtitle mb-2 text-muted">Address: <%= @taxpayer.address %></h6></br>
+            <h6 class="card-subtitle mb-2 text-muted">Entity Type: <%= @taxpayer.entity_type %></h6></br>
+            <h6 class="card-subtitle mb-2 text-muted">Active Status: <%= @taxpayer.activity_status %></h6></br>
             <p class="card-text">Created on: <%= @taxpayer.created_at %></p>
             <p class="card-text">Last updated on: <%= @taxpayer.updated_at %></p>
             <%= link_to 'Edit', edit_taxpayer_path(@taxpayer), class:"btn btn-outline-primary btn-sm" %>

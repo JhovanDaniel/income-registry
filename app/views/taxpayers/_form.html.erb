@@ -42,7 +42,7 @@
         <div class="col-md-3 mb-3">
             <p> 
             <%= f.label 'Address' %>
-            <%= f.text_field :address %>
+            <%= f.text_field :address, style: 'display: block;' %>
             </p>
         </div>
     </div>
@@ -51,15 +51,15 @@
         <div class="col-md-3 mb-3">
             <p>
             <%= f.label 'Entity Type' %>
-            <%= f.select :entity_type, ['Government', 'Private', 'Self-Employed']%>
+            <%= f.select :entity_type, ['Government', 'Private', 'Self-Employed'], style: 'display: block;'%>
             </p>
         </div>
     </div>
     <div class="form-row">
         <div class="col-md-3 mb-3">
             <p>
-            <%= f.label 'Active Status' %>
-            <%= f.select :active_status, ['Active', 'Inactive']%>
+            <%= f.label 'Activity Status' %>
+            <%= f.select :activity_status, ['Active', 'Inactive'], style: 'display: block;'%>
             </p>
         </div>
     </div>

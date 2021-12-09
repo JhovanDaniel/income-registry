@@ -47,7 +47,7 @@ class TaxpayersController < ApplicationController
     end
     
     def taxpayer_params
-        params.require(:taxpayer).permit(:ird_no, :old_ird_no, :first_name, :middle_name, :last_name, :address, :entity_type)
+        params.require(:taxpayer).permit(:ird_no, :old_ird_no, :first_name, :middle_name, :last_name, :address, :entity_type, :activity_status)
     end
     
     
