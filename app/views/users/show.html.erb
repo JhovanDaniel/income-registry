@@ -8,13 +8,13 @@
             <h6 class="card-subtitle mb-2 text-muted">Email: <%= @user.email %></h6></br>
             <p class="card-text">Created on: <%= @user.created_at %></p>
             <p class="card-text">Last updated on: <%= @user.updated_at %></p>
-            <%= link_to 'Edit', edit_taxpayer_path(@user), class:"btn btn-outline-primary btn-sm" %>
-            <%= link_to 'Delete', taxpayer_path(@user), class:"btn btn-danger btn-sm", method: :delete, data: { confirm: "Are you sure?" } %>
+            <%= link_to 'Edit', edit_user_path(@user), class:"btn btn-outline-primary btn-sm" %>
+            <%= link_to 'Delete', user_path(@user), class:"btn btn-danger btn-sm", method: :delete, data: { confirm: "Are you sure?" } %>
           </div>
         </div></br>
         
     <p>
-        <%= link_to "Return to users listing", taxpayers_path %>
+        <%= link_to "Return to users listing", users_path %>
     </p>
         
 
