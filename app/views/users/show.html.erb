@@ -1,0 +1,21 @@
+<div class="container">
+    <h1 class="mt-4"> User Information </h1></br>
+
+    <div class="card mt-4" style="width: 50rem;">
+        <div class="card-body">
+            <h5 class="card-title"><%= @user.first_name %>  <%= @user.last_name %></h5></br>
+            <h6 class="card-subtitle mb-2 text-muted">Usernamer: <%= @user.username %> </h6></br>
+            <h6 class="card-subtitle mb-2 text-muted">Email: <%= @user.email %></h6></br>
+            <p class="card-text">Created on: <%= @user.created_at %></p>
+            <p class="card-text">Last updated on: <%= @user.updated_at %></p>
+            <%= link_to 'Edit', edit_taxpayer_path(@user), class:"btn btn-outline-primary btn-sm" %>
+            <%= link_to 'Delete', taxpayer_path(@user), class:"btn btn-danger btn-sm", method: :delete, data: { confirm: "Are you sure?" } %>
+          </div>
+        </div></br>
+        
+    <p>
+        <%= link_to "Return to users listing", taxpayers_path %>
+    </p>
+        
+
+</div>

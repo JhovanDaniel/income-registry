@@ -1,8 +1,8 @@
-<% if @taxpayer.errors.any? %>
+<% if obj.errors.any? %>
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
       <h4 class="alert-heading">The following errors prevented the taxpayer from bieng saved:</h4>
         <ul>
-            <%@taxpayer.errors.full_messages.each do |msg| %>
+            <% obj.errors.full_messages.each do |msg| %>
                 <li><%=msg%></li>
             <%end%>
         </ul>

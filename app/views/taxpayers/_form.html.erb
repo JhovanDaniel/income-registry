@@ -1,5 +1,5 @@
 <div class="col-10">
-    <%= render 'shared/errors' %>
+    <%= render 'shared/errors', obj: @taxpayer %>
 </div>
 
 
@@ -7,13 +7,13 @@
     <div class="form-row">
         <div class="col-md-3 mb-3">
             <p> 
-            <%= f.label 'IRD No' %>
+            <%= f.label 'IRD Number' %>
             <%= f.text_field :ird_no,  style: 'display: block;'%>
             </p>
         </div>
         <div class="col-md-3 mb-3">
             <p> 
-            <%= f.label 'Old IRD No' %>
+            <%= f.label 'Old IRD Number' %>
             <%= f.text_field :old_ird_no,  style: 'display: block;' %>
             </p>
         </div>

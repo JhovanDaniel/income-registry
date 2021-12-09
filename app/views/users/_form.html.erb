@@ -1,0 +1,49 @@
+<div class="col-10">
+    <%= render 'shared/errors', obj: @user %>
+</div>
+
+
+<%= form_with(model: @user, local: true ) do |f| %>
+    <div class="form-row">
+        <div class="col-md-3 mb-3">
+            <p> 
+            <%= f.label 'Username' %>
+            <%= f.text_field :username,  style: 'display: block;'%>
+            </p>
+        </div>
+        <div class="col-md-3 mb-3">
+            <p> 
+            <%= f.label 'Email' %>
+            <%= f.email_field :email,  style: 'display: block;' %>
+            </p>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-3 mb-3">
+            <p> 
+            <%= f.label 'First Name' %>
+            <%= f.text_field :first_name,  style: 'display: block;' %>
+            </p>
+        </div>
+        <div class="col-md-3 mb-3">
+            <p> 
+            <%= f.label 'Last Name' %>
+            <%= f.text_field :last_name,  style: 'display: block;' %>
+            </p>
+        </div>
+    </div>
+    
+      <div class="form-row">
+        <div class="col-md-3 mb-3">
+            <p> 
+            <%= f.label 'Password' %>
+            <%= f.text_field :password,  style: 'display: block;' %>
+            </p>
+        </div>
+    </div>
+    
+    <p>
+        <%= f.submit %>
+    </p>
+
+<% end %>

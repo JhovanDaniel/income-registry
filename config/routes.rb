@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get 'active', to: 'taxpayers#active'
   get 'inactive', to: 'taxpayers#inactive'
   resources :taxpayers
+  resources :users
 end
