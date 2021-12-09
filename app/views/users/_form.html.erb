@@ -40,6 +40,12 @@
             <%= f.text_field :password,  style: 'display: block;' %>
             </p>
         </div>
+        <div class="col-md-3 mb-3">
+            <p>
+            <%= f.label 'Access level' %>
+            <%= f.select :access_level, ['Viewer', 'Registrar', 'Admin'], style: 'display: block;'%>
+            </p>
+        </div>
     </div>
     
     <p>

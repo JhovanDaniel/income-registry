@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_09_140621) do
+ActiveRecord::Schema.define(version: 2021_12_09_152908) do
 
   create_table "taxpayers", force: :cascade do |t|
     t.string "ird_no"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2021_12_09_140621) do
     t.string "password_digest"
     t.string "first_name"
     t.string "last_name"
+    t.string "access_level"
   end
 
 end
