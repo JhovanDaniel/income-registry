@@ -28,6 +28,9 @@
         </div>
     </div><br/>
     
+    <div class="flickr_pagination">
+        <%= will_paginate @users, :container => false %>
+    </div></br>
     
     <table class="table table-striped  mt-4">
       <thead>
@@ -55,5 +58,10 @@
             <% end %>
         </tbody>
     </table>
+    
+    <div class="flickr_pagination mb-4 mt-4">
+        <%= will_paginate @users, :container => false %>
+    </div></br>
+    
     <p><b> <%= link_to "Add new user", new_user_path, class:"alert alert-light" %> </b></p>
 </div>

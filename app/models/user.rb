@@ -8,4 +8,9 @@ class User < ApplicationRecord
                         format: {with: VALID_EMAIL_REGEX }
                             
     has_secure_password
+    
+    def initials
+    "#{first_name.first}#{last_name.first}".upcase 
+  end
+  
 end

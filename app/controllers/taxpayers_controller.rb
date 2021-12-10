@@ -6,7 +6,7 @@ class TaxpayersController < ApplicationController
     end
     
     def index
-        @taxpayers = Taxpayer.all
+        @taxpayers = Taxpayer.paginate(page: params[:page], per_page: 15)
     end
     
     def new

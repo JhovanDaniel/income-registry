@@ -1,0 +1,33 @@
+<div class="container"><br/><br/><br/><br/>
+    <h1 class="mt-4"> Log In </h1><br/>
+    
+    <div class="col-10">
+    </div>
+
+
+    <%= form_with(scope: :session, url: login_path, local: true ) do |f| %>
+        <div class="form-row">
+            <div class="col-md-3 mb-3">
+                <p> 
+                <%= f.label 'Email' %>
+                <%= f.text_field :email,  style: 'display: block;'%>
+                </p>
+            </div>
+        </div>
+        
+          <div class="form-row">
+            <div class="col-md-3 mb-3">
+                <p> 
+                <%= f.label 'Password' %>
+                <%= f.text_field :password,  style: 'display: block;' %>
+                </p>
+            </div>
+        </div>
+        
+        <p>
+            <%= f.submit "Login", class:"pl-4 pr-4"%>
+        </p>
+    
+    <% end %>
+        
+</div>
