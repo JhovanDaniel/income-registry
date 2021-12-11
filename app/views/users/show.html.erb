@@ -8,8 +8,12 @@
             <h6 class="card-subtitle mb-2 text-muted">Email: <%= @user.email %></h6></br>
             <p class="card-text">Created on: <%= @user.created_at %></p>
             <p class="card-text">Last updated on: <%= @user.updated_at %></p>
-            <%= link_to 'Edit', edit_user_path(@user), class:"btn btn-outline-primary btn-sm" %>
-            <%= link_to 'Delete', user_path(@user), class:"btn btn-danger btn-sm", method: :delete, data: { confirm: "Are you sure?" } %>
+            <% if logged_in?%>
+                <% if @user == current_user or current_user.access_level =="Admin"%>
+                    <%= link_to 'Edit', edit_user_path(@user), class:"btn btn-outline-primary btn-sm" %>
+                    <%= link_to 'Delete', user_path(@user), class:"btn btn-danger btn-sm", method: :delete, data: { confirm: "Are you sure?" } %>
+                <%end%>
+            <% end %> 
           </div>
         </div></br>
         
