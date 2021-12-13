@@ -56,8 +56,8 @@ class UsersController < ApplicationController
         params.require(:user).permit(:username, :email, :password, :first_name, :last_name, :access_level)
     end
     
-    def require_same_user
-        if current_user != @user
+    def require_same_user 
+        if current_user != @user && current_user.access_level != "Admin"
             flash[:alert] = "You do not permission to do this action"
             redirect_to root_path
         end
