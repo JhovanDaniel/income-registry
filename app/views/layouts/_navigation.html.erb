@@ -16,7 +16,7 @@
                   <%= current_user.first_name %> <%= current_user.last_name %>
                 </a>
                 <div class="dropdown-content" aria-labelledby="navbarDropdown">
-                <%= link_to 'Profile', user_path(current_user.first_name), class: "nav-link"%>
+                <%= link_to 'Profile', user_path(current_user.id), class: "nav-link"%>
                  <%= link_to 'Logout', logout_path, class: "nav-link", method: :delete %>
                 </div>
               </li>
@@ -41,19 +41,24 @@
                 <%= link_to "All Taxpayers", taxpayers_path, class: "dropdown-item" %>
                 <%= link_to "Active Taxpayers", active_path, class: "dropdown-item" %>
                 <%= link_to "Inactive Taxpayers", inactive_path, class: "dropdown-item" %>
-                <%= link_to "New Taxpayer", new_taxpayer_path, class:"dropdown-item"%>
+                <% if current_user.access_level == "Admin" or current_user.access_level =="Registrar" %>
+                  <%= link_to "New Taxpayer", new_taxpayer_path, class:"dropdown-item"%>
+                <% end %>
               </div>
             </li>
-            
+            <% if current_user.access_level == "Admin" %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                 Users
               </a>
               <div class="dropdown-content" aria-labelledby="navbarDropdown">
                 <%= link_to "All Users", users_path, class: "dropdown-item" %>
-                <%= link_to "New User", new_user_path, class: "dropdown-item" %>
+                <% if current_user.access_level == "Admin" %>
+                  <%= link_to "New User", new_user_path, class: "dropdown-item" %>
+                <% end %>
               </div>
             </li>
+            <% end %>
           </ul>
         </div>
         <% end %>

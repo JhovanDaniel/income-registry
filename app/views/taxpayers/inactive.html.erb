@@ -1,65 +1,71 @@
 <div class="container">
     <h1 class="mt-4"> Inactive Taxpayers </h1><br/>
     
-    
-    <div class="col-md-4">
-        <div class="card card-sm">
-          <div class="card-body">
-            <div class="row align-items-center">
-              <div class="col-auto">
-                <span class="badge-primary p-2 pt-4 pb-4 rounded center">
-                  <!--<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2"></path><path d="M12 3v3m0 12v3"></path></svg>-->
-                  <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-file-person" viewBox="0 0 16 16">
-                    <path d="M12 1a1 1 0 0 1 1 1v10.755S12 11 8 11s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/>
-                    <path d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                  </svg>
-                </span>
-              </div>
-              <div class="col">
-                <div class="font-weight-medium">
-                  <%= Taxpayer.where(activity_status: 'Inactive').count %>
+    <% if logged_in? %>
+      <div class="col-md-4">
+          <div class="card card-sm">
+            <div class="card-body">
+              <div class="row align-items-center">
+                <div class="col-auto">
+                  <span class="badge-primary p-2 pt-4 pb-4 rounded center">
+                    <!--<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2"></path><path d="M12 3v3m0 12v3"></path></svg>-->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-file-person" viewBox="0 0 16 16">
+                      <path d="M12 1a1 1 0 0 1 1 1v10.755S12 11 8 11s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/>
+                      <path d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                    </svg>
+                  </span>
                 </div>
-                <div class="text-muted">
-                  Inactive Taxpayers
+                <div class="col">
+                  <div class="font-weight-medium">
+                    <%= Taxpayer.where(activity_status: 'Inactive').count %>
+                  </div>
+                  <div class="text-muted">
+                    Inactive Taxpayers
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-    </div><br/>
-    
-    
-    <table class="table table-striped  mt-4">
-      <thead>
-        <tr>
-            <th>IRD Number</th>
-            <th>Old IRD Number</th>
-            <th>First Name</th>
-            <th>Middle Name</th>
-            <th>Last Name</th>
-            <th>Address</th>
-            <th>Entity Type</th>
-            <th>Active Status</th>
-            <th colspan="3">Actions</th>
-        </tr>
-      </thead>
-        <tbody>
-            <% Taxpayer.where(activity_status: 'Inactive').each do |taxpayer| %>
-            <tr>
-                <td> <%= taxpayer.ird_no %> </td>
-                <td> <%= taxpayer.old_ird_no %></td>
-                <td><%= taxpayer.first_name %></td>
-                <td><%= taxpayer.middle_name %></td>
-                <td><%= taxpayer.last_name %></td>
-                <td><%= taxpayer.address %></td>
-                <td><%= taxpayer.entity_type %></td>
-                <td><%= taxpayer.activity_status %></td>
-                <td><%= link_to "View", taxpayer_path(taxpayer), class:"btn btn-outline-primary btn-sm" %></td>
-                <td><%= link_to 'Edit', edit_taxpayer_path(taxpayer), class:"btn btn-outline-primary btn-sm" %></td>
-                <td><%= link_to 'Delete', taxpayer_path(taxpayer), class:"btn btn-danger btn-sm", method: :delete, data: { confirm: "Are you sure?" } %></td>
-            </tr>
-            <% end %>
-        </tbody>
-    </table>
-    <p><b> <%= link_to "Add new taxpayer", new_taxpayer_path, class:"alert alert-light" %> </b></p>
+      </div><br/>
+      
+      
+      <table class="table table-striped  mt-4">
+        <thead>
+          <tr>
+              <th>IRD Number</th>
+              <th>Old IRD Number</th>
+              <th>First Name</th>
+              <th>Middle Name</th>
+              <th>Last Name</th>
+              <th>Address</th>
+              <th>Entity Type</th>
+              <th>Active Status</th>
+              <th colspan="3">Actions</th>
+          </tr>
+        </thead>
+          <tbody>
+              <% Taxpayer.where(activity_status: 'Inactive').each do |taxpayer| %>
+              <tr>
+                  <td> <%= taxpayer.ird_no %> </td>
+                  <td> <%= taxpayer.old_ird_no %></td>
+                  <td><%= taxpayer.first_name %></td>
+                  <td><%= taxpayer.middle_name %></td>
+                  <td><%= taxpayer.last_name %></td>
+                  <td><%= taxpayer.address %></td>
+                  <td><%= taxpayer.entity_type %></td>
+                  <td><%= taxpayer.activity_status %></td>
+                  <td><%= link_to "View", taxpayer_path(taxpayer), class:"btn btn-outline-primary btn-sm" %></td>
+                  <% if current_user.access_level == "Admin" or current_user.access_level =="Registrar" %>
+                    <td><%= link_to 'Edit', edit_taxpayer_path(taxpayer), class:"btn btn-outline-primary btn-sm" %></td>
+                  <% end %>
+              </tr>
+              <% end %>
+          </tbody>
+      </table>
+      <% if current_user.access_level == "Admin" or current_user.access_level =="Registrar" %>
+        <p><b> <%= link_to "Add new taxpayer", new_taxpayer_path, class:"alert alert-light" %> </b></p>
+        <% end %>
+    <% else %>
+      <% redirect_to_index %>
+    <% end %>
 </div>

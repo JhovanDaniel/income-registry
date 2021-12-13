@@ -22,8 +22,14 @@
             <h6 class="card-subtitle mb-2 text-muted">Active Status: <%= @taxpayer.activity_status %></h6></br>
             <p class="card-text">Created on: <%= @taxpayer.created_at %></p>
             <p class="card-text">Last updated on: <%= @taxpayer.updated_at %></p>
-            <%= link_to 'Edit', edit_taxpayer_path(@taxpayer), class:"btn btn-outline-primary btn-sm" %>
-            <%= link_to 'Delete', taxpayer_path(@taxpayer), class:"btn btn-danger btn-sm", method: :delete, data: { confirm: "Are you sure?" } %>
+            <% if logged_in? %>
+                <% if current_user.access_level == "Registrar" or current_user.access_level == "Admin" %>
+                    <%= link_to 'Edit', edit_taxpayer_path(@taxpayer), class:"btn btn-outline-primary btn-sm" %>
+                    <% if current_user.access_level == "Admin" %>
+                        <%= link_to 'Delete', taxpayer_path(@taxpayer), class:"btn btn-danger btn-sm", method: :delete, data: { confirm: "Are you sure?" } %>
+                    <% end %>
+                <% end %>
+            <% end %>
           </div>
         </div></br>
         

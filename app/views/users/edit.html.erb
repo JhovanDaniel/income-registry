@@ -1,7 +1,11 @@
 <div class="container">
-    <h1> Edit User </h1>
+    <h1 class="mt-4"> Edit User </h1></br>
     
-    <%= render 'form' %>
+    <%= render 'form' %></br>
     
-    <p><%= link_to "Return to users listing", users_path %></p>
+    <% if current_user.access_level == "Admin" %>
+        <p><%= link_to "Return to users listing", users_path %></p>
+    <% else%>
+        <p><%= link_to "Go to taxpayers listing", taxpayers_path %></p>
+    <% end %>
 </div>

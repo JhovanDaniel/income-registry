@@ -1,6 +1,11 @@
 class TaxpayersController < ApplicationController
     
     before_action :set_taxpayer, only: [:show, :edit, :update, :destroy]
+    before_action :require_user, only: [:show, :edit, :update, :destroy, :new, :create, :index]
+    before_action :require_registrar_admin, only: [:edit, :update, :new, :create, :destroy]
+    
+    
+    
     
     def show
     end
@@ -50,5 +55,10 @@ class TaxpayersController < ApplicationController
         params.require(:taxpayer).permit(:ird_no, :old_ird_no, :first_name, :middle_name, :last_name, :address, :entity_type, :activity_status)
     end
     
+    def redirect_to_index
+        redirect_to taxpayers_path
+    end
+    
+    helper_method :redirect_to_index
     
 end

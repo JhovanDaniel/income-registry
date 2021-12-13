@@ -58,8 +58,9 @@
                 <td><%= taxpayer.entity_type %></td>
                 <td><%= taxpayer.activity_status %></td>
                 <td><%= link_to "View", taxpayer_path(taxpayer), class:"btn btn-outline-primary btn-sm" %></td>
-                <td><%= link_to 'Edit', edit_taxpayer_path(taxpayer), class:"btn btn-outline-primary btn-sm" %></td>
-                <td><%= link_to 'Delete', taxpayer_path(taxpayer), class:"btn btn-danger btn-sm", method: :delete, data: { confirm: "Are you sure?" } %></td>
+                <% if current_user.access_level == "Admin" or current_user.access_level =="Registrar" %>
+                  <td><%= link_to 'Edit', edit_taxpayer_path(taxpayer), class:"btn btn-outline-primary btn-sm" %></td>
+                <% end %>
             </tr>
             <% end %>
         </tbody>
@@ -69,5 +70,7 @@
         <%= will_paginate @taxpayers, :container => false %>
     </div></br>
     
-    <p><b> <%= link_to "Add new taxpayer", new_taxpayer_path, class:"alert alert-light" %> </b></p>
+    <% if current_user.access_level == "Admin" or current_user.access_level =="Registrar" %>
+      <p><b> <%= link_to "Add new taxpayer", new_taxpayer_path, class:"alert alert-light" %> </b></p>
+      <% end %>
 </div>
