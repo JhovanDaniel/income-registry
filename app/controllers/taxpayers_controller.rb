@@ -11,7 +11,10 @@ class TaxpayersController < ApplicationController
     end
     
     def index
-        @taxpayers = Taxpayer.paginate(page: params[:page], per_page: 15)
+        @q = Taxpayer.ransack(params[:q])
+        @taxpayers = @q.result(distinct: true)
+        @results = @q.result.paginate(page: params[:page], per_page: 15)
+        #@taxpayers = Taxpayer.paginate(page: params[:page], per_page: 15)
     end
     
     def new
@@ -60,5 +63,13 @@ class TaxpayersController < ApplicationController
     end
     
     helper_method :redirect_to_index
+    
+    def collect_results
+        @q = Taxpayer.ransack(params[:q])
+        @taxpayers = @q.result(distinct: true)
+        @results = @q.result.paginate(page: params[:page], per_page: 15)
+    end
+    
+    helper_method :collect_results
     
 end

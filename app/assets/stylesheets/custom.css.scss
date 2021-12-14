@@ -6,8 +6,13 @@ background-color: #fff !important;
 
 }
 
+.table{
+  width: 80rem !important ;
+}
+
 .container{
     flex: auto !important;
+    width: 1800px !important;
 }
 
 .dropdown {
@@ -83,3 +88,7 @@ body{
     margin-right: 1em; }
   .flickr_pagination .next_page {
     margin-left: 1em; }
+    
+  a {
+    color: black !important;
+  }
