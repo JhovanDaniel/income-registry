@@ -48,6 +48,18 @@ class TaxpayersController < ApplicationController
         redirect_to taxpayers_path
     end
     
+    def active
+        @r = Taxpayer.ransack(params[:q])
+        @taxpayers = @r.result(distinct: true)
+        @results = @r.result.paginate(page: params[:page], per_page: 15)
+    end
+    
+    def inactive
+        @p = Taxpayer.ransack(params[:q])
+        @taxpayers = @p.result(distinct: true)
+        @results = @p.result.paginate(page: params[:page], per_page: 15)
+    end
+    
     private
     
     def set_taxpayer
@@ -63,13 +75,5 @@ class TaxpayersController < ApplicationController
     end
     
     helper_method :redirect_to_index
-    
-    def collect_results
-        @q = Taxpayer.ransack(params[:q])
-        @taxpayers = @q.result(distinct: true)
-        @results = @q.result.paginate(page: params[:page], per_page: 15)
-    end
-    
-    helper_method :collect_results
     
 end

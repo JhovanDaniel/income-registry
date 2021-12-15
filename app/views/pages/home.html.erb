@@ -54,6 +54,38 @@
       </div>
     </div>
   </div>
+  <div class="col-md-6">
+    <div class="card card-sm">
+      <div class="card-body">
+        <div class="row align-items-center">
+          <div class="col">
+            <div class="font-weight-medium">
+              <%= Taxpayer.where(entity_type: 'Government').count %>
+            </div>
+            <div class="text-muted">
+            Government
+            </div>
+          </div>
+          <div class="col">
+            <div class="font-weight-medium">
+              <%= Taxpayer.where(entity_type: 'Private').count %>
+            </div>
+            <div class="text-muted">
+              Private
+            </div>
+          </div>
+          <div class="col">
+            <div class="font-weight-medium">
+              <%= Taxpayer.where(entity_type: 'Self-Employed').count %>
+            </div>
+            <div class="text-muted">
+              Self-employed
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   
   
   

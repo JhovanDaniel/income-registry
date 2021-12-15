@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container ">
     <h1 class="mt-4"> Active Taxpayers </h1><br/>
     
     <% if logged_in? %>
@@ -29,7 +29,12 @@
       </div><br/>
       
     
-      <table class="table table-striped  mt-4">
+      <div class="flickr_pagination">
+          <%= will_paginate @results, :container => false %>
+      </div>
+  
+      
+      <table class="table table-striped  mt-4 ">
         <thead>
           <tr>
               <th>IRD Number</th>

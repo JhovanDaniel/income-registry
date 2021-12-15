@@ -32,7 +32,7 @@
           <%= will_paginate @results, :container => false %>
       </div>
       
-      <%= render 'taxpayers/search_form' %>
+      <%= render 'taxpayers/search_form', obj: @q %>
       
       <table class="table table-striped  mt-4">
         <thead>

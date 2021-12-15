@@ -1,8 +1,6 @@
 <div class="container">
     <h1 class="mt-4"> Inactive Taxpayers </h1><br/>
     
-    
-    <% collect_results %>
     <% if logged_in? %>
       <div class="col-md-4">
           <div class="card card-sm">
@@ -29,6 +27,12 @@
             </div>
           </div>
       </div><br/>
+      
+      
+      <div class="flickr_pagination">
+          <%= will_paginate @results, :container => false %>
+      </div>
+      
     
       <table class="table table-striped  mt-4">
         <thead>
