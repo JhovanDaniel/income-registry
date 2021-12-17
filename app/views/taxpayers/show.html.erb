@@ -18,6 +18,7 @@
             <h5 class="card-title"><%= @taxpayer.first_name %>  <%= @taxpayer.middle_name %>  <%= @taxpayer.last_name %></h5></br>
             <h6 class="card-subtitle mb-2 text-muted">IRD Number: <%= @taxpayer.ird_no %> | Old IRD Number: <%= @taxpayer.old_ird_no %></h6></br>
             <h6 class="card-subtitle mb-2 text-muted">Address: <%= @taxpayer.address %></h6></br>
+            <h6 class="card-subtitle mb-2 text-muted"> Company: <%= link_to @taxpayer.company.name, company_path(@taxpayer.company) %></h6></br>
             <h6 class="card-subtitle mb-2 text-muted">Entity Type: <%= @taxpayer.entity_type %></h6></br>
             <h6 class="card-subtitle mb-2 text-muted">Active Status: <%= @taxpayer.activity_status %></h6></br>
             <p class="card-text">Created on: <%= @taxpayer.created_at %></p>

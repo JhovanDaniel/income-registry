@@ -25,7 +25,7 @@ class TaxpayersController < ApplicationController
         @taxpayer = Taxpayer.new(taxpayer_params)
         if @taxpayer.save
             redirect_to taxpayer_path(@taxpayer)
-            flash[:notice] = "Article was created successfully"
+            flash[:notice] = "Taxpayer was created successfully"
         else 
             render 'new'
         end
@@ -67,7 +67,7 @@ class TaxpayersController < ApplicationController
     end
     
     def taxpayer_params
-        params.require(:taxpayer).permit(:ird_no, :old_ird_no, :first_name, :middle_name, :last_name, :address, :entity_type, :activity_status)
+        params.require(:taxpayer).permit(:ird_no, :old_ird_no, :first_name, :middle_name, :last_name, :address, :entity_type, :activity_status, :company_id)
     end
     
     def redirect_to_index

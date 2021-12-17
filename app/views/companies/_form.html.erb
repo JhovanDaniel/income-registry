@@ -1,9 +1,9 @@
 <div class="col-10">
-    <%= render 'shared/errors', obj: @taxpayer %>
+    <%= render 'shared/errors', obj: @company %>
 </div>
 
 
-<%= form_with(model: @taxpayer, local: true ) do |f| %>
+<%= form_with(model: @company, local: true ) do |f| %>
     <div class="form-row">
         <div class="col-md-3 mb-3">
             <p> 
@@ -11,30 +11,12 @@
             <%= f.text_field :ird_no,  style: 'display: block;'%>
             </p>
         </div>
-        <div class="col-md-3 mb-3">
-            <p> 
-            <%= f.label 'Old IRD Number' %>
-            <%= f.text_field :old_ird_no,  style: 'display: block;' %>
-            </p>
-        </div>
     </div>
     <div class="form-row">
         <div class="col-md-3 mb-3">
             <p> 
-            <%= f.label 'First Name' %>
-            <%= f.text_field :first_name,  style: 'display: block;' %>
-            </p>
-        </div>
-        <div class="col-md-3 mb-3">
-            <p> 
-            <%= f.label 'Middle Name' %>
-            <%= f.text_field :middle_name,  style: 'display: block;' %>
-            </p>
-        </div>
-        <div class="col-md-3 mb-3">
-            <p> 
-            <%= f.label 'Last Name' %>
-            <%= f.text_field :last_name,  style: 'display: block;' %>
+            <%= f.label 'Company Name' %>
+            <%= f.text_field :name,  style: 'display: block;' %>
             </p>
         </div>
     </div>
@@ -50,18 +32,18 @@
    <div class="form-row">
         <div class="col-md-3 mb-3">
             <p>
-            <%= f.label 'Entity Type' %>
-            <%= f.select :entity_type, ['Government', 'Private', 'Self-Employed'] %>
-            </p>
-        </div>
-        <div class="col-md-3 mb-3">
-            <p>
-            <%= f.label 'Company' %>
-            <%= f.collection_select :company_id, Company.order(:name), :id, :name %>
+            <%= f.label 'PAYE Number' %>
+            <%= f.text_field :paye_no, style: 'display block' %>
             </p>
         </div>
     </div>
     <div class="form-row">
+        <div class="col-md-3 mb-3">
+            <p>
+            <%= f.label 'Entity Type' %>
+            <%= f.select :entity_type, ['Government', 'Private', 'Self-Employed'] %>
+            </p>
+        </div>
         <div class="col-md-3 mb-3">
             <p>
             <%= f.label 'Activity Status' %>
