@@ -60,6 +60,12 @@ class TaxpayersController < ApplicationController
         @results = @p.result.paginate(page: params[:page], per_page: 15)
     end
     
+    def year_index
+        @x = Taxpayer.ransack(params[:q])
+        @taxpayers = @x.result(distinct: true)
+        @results = @x.result.paginate(page: params[:page], per_page: 15)
+    end
+    
     private
     
     def set_taxpayer

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   get 'active', to: 'taxpayers#active'
   get 'inactive', to: 'taxpayers#inactive'
+  get 'year_index', to: 'taxpayers#year_index'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
