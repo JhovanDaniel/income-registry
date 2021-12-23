@@ -2,6 +2,9 @@ class Taxpayer < ApplicationRecord
     
     belongs_to :company
     
+    has_many :taxpayer_years
+    has_many :years, through: :taxpayer_years
+    
     validates :ird_no, uniqueness: true, presence: true, length: {minimum: 6, maximum: 6}
     validates :old_ird_no, uniqueness: true
     validates :first_name, presence: true, length: {minimum: 3, maximum: 25}

@@ -54,7 +54,7 @@
         <div class="row align-items-center">
           <div class="col">
             <div class="font-weight-medium">
-              <%= Taxpayer.where(entity_type: 'Government').count %>
+              <%= Year.joins(:taxpayers).where(name: '2017').count %>
             </div>
             <div class="text-muted">
             2017
@@ -62,7 +62,7 @@
           </div>
           <div class="col">
             <div class="font-weight-medium">
-              <%= Taxpayer.where(entity_type: 'Private').count %>
+              <%= Year.joins(:taxpayers).where(name: '2018').count %>
             </div>
             <div class="text-muted">
               2018
@@ -70,7 +70,7 @@
           </div>
           <div class="col">
             <div class="font-weight-medium">
-              <%= Taxpayer.where(entity_type: 'Self-Employed').count %>
+              <%= Year.joins(:taxpayers).where(name: '2019').count %>
             </div>
             <div class="text-muted">
               2019
@@ -78,14 +78,14 @@
           </div>
           <div class="col">
             <div class="font-weight-medium">
-              <%= Taxpayer.where(entity_type: 'Government').count %>
+              <%= Year.joins(:taxpayers).where(name: '2020').count %>
             </div>
             <div class="text-muted">
             2020
             </div>
           </div><div class="col">
             <div class="font-weight-medium">
-              <%= Taxpayer.where(entity_type: 'Government').count %>
+              <%= Year.joins(:taxpayers).where(name: '2021').count %>
             </div>
             <div class="text-muted">
             2021
