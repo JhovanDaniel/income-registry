@@ -73,7 +73,7 @@ class TaxpayersController < ApplicationController
     end
     
     def taxpayer_params
-        params.require(:taxpayer).permit(:ird_no, :old_ird_no, :first_name, :middle_name, :last_name, :address, :entity_type, :activity_status, :company_id)
+        params.require(:taxpayer).permit(:ird_no, :old_ird_no, :first_name, :middle_name, :last_name, :address, :entity_type, :activity_status, :company_id, year_ids: [])
     end
     
     def redirect_to_index

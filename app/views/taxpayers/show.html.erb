@@ -21,6 +21,14 @@
             <h6 class="card-subtitle mb-2 text-muted"> Company: <%= link_to @taxpayer.company.name, company_path(@taxpayer.company) %></h6></br>
             <h6 class="card-subtitle mb-2 text-muted">Entity Type: <%= @taxpayer.entity_type %></h6></br>
             <h6 class="card-subtitle mb-2 text-muted">Active Status: <%= @taxpayer.activity_status %></h6></br>
+            <h6 class="card-subtitle mb-2 text-muted">Years Assessed: 
+            
+                <% if @taxpayer.years.any? %>
+                    <%= render @taxpayer.years %>
+                 </h6><br/>
+                 <% end %>
+            
+            
             <p class="card-text">Created on: <%= @taxpayer.created_at %></p>
             <p class="card-text">Last updated on: <%= @taxpayer.updated_at %></p>
             <% if logged_in? %>

@@ -70,6 +70,14 @@
         </div>
     </div>
     
+        <div class="form-row">
+          <div class="col-sm-8 col-sm-offset-2">
+            <%= f.collection_check_boxes :year_ids, Year.all, :id, :name do |cb| %>
+              <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox mx-2") + cb.text } %>
+            <% end %>
+          </div>
+        </div>
+
     <p>
         <%= f.submit %>
     </p>

@@ -95,11 +95,6 @@
       </div>
     </div>
     <br/>
-      
-      
-      <div class="flickr_pagination">
-          <%= will_paginate @results, :container => false %>
-      </div>
   
       
       <table class="table table-striped  mt-4 ">
@@ -129,11 +124,51 @@
                   <td><%= taxpayer.last_name %></td>
                   <td><%= taxpayer.entity_type %></td>
                   <td><%= taxpayer.activity_status %></td>
-                  <td>x</td>
-                  <td>x</td>
-                  <td>x</td>
-                  <td>x</td>
-                  <td>x</td>
+                  
+                  <td>
+                    <% if taxpayer.year_ids.include?(1) %>
+                      x
+                    <% else %>
+                      -
+                    <% end %>
+                  </td>
+                  
+                  
+                  <td>
+                    <% if taxpayer.year_ids.include?(2) %>
+                      x
+                    <% else %>
+                      -
+                    <% end %>
+                  </td>
+                  
+                  
+                  <td>
+                    <% if taxpayer.year_ids.include?(3) %>
+                      x
+                    <% else %>
+                      -
+                    <% end %>
+                  </td>
+                  
+                  
+                  <td>
+                    <% if taxpayer.year_ids.include?(4) %>
+                      x
+                    <% else %>
+                      -
+                    <% end %>
+                  </td>
+                  
+                  
+                  <td>
+                    <% if taxpayer.year_ids.include?(5) %>
+                      x
+                    <% else %>
+                      -
+                    <% end %>
+                  </td>
+                  
                   <td><%= link_to "View", taxpayer_path(taxpayer), class:"btn btn-outline-primary btn-sm" %></td>
                   <% if current_user.access_level == "Admin" or current_user.access_level =="Registrar" %>
                     <td><%= link_to 'Edit', edit_taxpayer_path(taxpayer), class:"btn btn-outline-primary btn-sm" %></td>
