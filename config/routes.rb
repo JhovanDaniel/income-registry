@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :taxpayers
   resources :users
   resources :companies
+  resources :years
 end

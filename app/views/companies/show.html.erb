@@ -10,6 +10,13 @@
             <h6 class="card-subtitle mb-2 text-muted">Address: <%= @company.address %></h6></br>
             <h6 class="card-subtitle mb-2 text-muted">Entity Type: <%= @company.entity_type %></h6></br>
             <h6 class="card-subtitle mb-2 text-muted">Active Status: <%= @company.activity_status %></h6></br>
+            
+            <% if @company.taxpayers.any? %>
+                <p> Company taxpayers: </p> <%= render @company.taxpayers %>
+                </h6><br/><br/>
+            <% end %>
+            
+            
             <p class="card-text">Created on: <%= @company.created_at %></p>
             <p class="card-text">Last updated on: <%= @company.updated_at %></p>
             <% if logged_in? %>

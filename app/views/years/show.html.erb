@@ -1,0 +1,18 @@
+<div class="container">
+    <h1 class="mt-4"> Year Information </h1></br>
+    
+    <p> Year: <%= @year.name %> </p>
+    <p> Number of Assessments for  <%= @year.name %>: <%= Year.joins(:taxpayers).where(name: @year.name).count %></p>
+    
+
+    
+     <% if @year.taxpayers.any? %>
+        <p> Assessments: </p> <%= render @year.taxpayers %>
+        </h6><br/><br/>
+    <% end %>
+    
+    <p>
+        <%= link_to "Go to taxpayers listing", taxpayers_path %>
+    </p>
+    
+</div>

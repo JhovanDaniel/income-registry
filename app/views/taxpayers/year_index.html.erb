@@ -1,6 +1,8 @@
 <div class="container">
     <h1 class="mt-4"> Year Register </h1><br/>
     
+    <% checkmark = "\u2713" %>
+    
     
          <% if logged_in? %>
       <div class="col-5">
@@ -127,7 +129,7 @@
                   
                   <td>
                     <% if taxpayer.year_ids.include?(1) %>
-                      x
+                      <%= checkmark %>
                     <% else %>
                       -
                     <% end %>
@@ -136,7 +138,7 @@
                   
                   <td>
                     <% if taxpayer.year_ids.include?(2) %>
-                      x
+                      <%= checkmark %>
                     <% else %>
                       -
                     <% end %>
@@ -145,7 +147,7 @@
                   
                   <td>
                     <% if taxpayer.year_ids.include?(3) %>
-                      x
+                      <%= checkmark %>
                     <% else %>
                       -
                     <% end %>
@@ -154,7 +156,7 @@
                   
                   <td>
                     <% if taxpayer.year_ids.include?(4) %>
-                      x
+                      <%= checkmark %>
                     <% else %>
                       -
                     <% end %>
@@ -163,7 +165,7 @@
                   
                   <td>
                     <% if taxpayer.year_ids.include?(5) %>
-                      x
+                      <%= checkmark %>
                     <% else %>
                       -
                     <% end %>

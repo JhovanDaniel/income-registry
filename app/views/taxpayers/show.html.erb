@@ -25,11 +25,11 @@
             
                 <% if @taxpayer.years.any? %>
                     <%= render @taxpayer.years %>
-                 </h6><br/>
+                 </h6>
                  <% end %>
             
             
-            <p class="card-text">Created on: <%= @taxpayer.created_at %></p>
+            </br></br><p class="card-text">Created on: <%= @taxpayer.created_at %></p>
             <p class="card-text">Last updated on: <%= @taxpayer.updated_at %></p>
             <% if logged_in? %>
                 <% if current_user.access_level == "Registrar" or current_user.access_level == "Admin" %>
