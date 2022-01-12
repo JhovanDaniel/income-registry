@@ -22,6 +22,9 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 gem 'will_paginate', '~>3.1.0'
 gem 'ransack'
+gem 'wicked'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

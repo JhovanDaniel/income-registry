@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
     
-    before_action :set_company, only: [:show, :edit, :update, :destroy]
+    before_action :set_company, only: [:show, :edit, :update, :destroy, :company_taxpayers]
     before_action :require_user, only: [:show, :edit, :update, :destroy, :new, :create, :index]
     before_action :require_registrar_admin, only: [:edit, :update, :new, :create, :destroy]
     
@@ -43,6 +43,15 @@ class CompaniesController < ApplicationController
     def destroy 
         @company.destroy
         redirect_to companies_path
+    end
+    
+    def company_taxpayers
+        respond_to do |format|
+            format.html
+            format.pdf do
+                render pdf: "file_name", template: "companies/company_taxpayers.html.erb", layout: 'pdf.html',  page_height: '1.2in', page_width: '3in'
+            end
+        end
     end
     
      private

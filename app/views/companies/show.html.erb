@@ -13,8 +13,9 @@
             
             <% if @company.taxpayers.any? %>
                 <p> Company taxpayers: </p> <%= render @company.taxpayers %>
-                </h6><br/><br/>
+                </h6><br/>
             <% end %>
+            
             
             
             <p class="card-text">Created on: <%= @company.created_at %></p>

@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'pages#home'
   get 'about', to: 'pages#about'
-  get 'active', to: 'taxpayers#active'
-  get 'inactive', to: 'taxpayers#inactive'
+  get 'companies/:id/company_taxpayers', to: 'companies#company_taxpayers', as: :company_taxpayers
   get 'year_index', to: 'taxpayers#year_index'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'

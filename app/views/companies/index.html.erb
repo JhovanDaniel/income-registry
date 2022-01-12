@@ -95,7 +95,7 @@
               <th>Address</th>
               <th><%= sort_link(@q, :entity_type, "Entity Type") %></th>
               <th><%= sort_link(@q, :activity_status, "Active Status") %></th>
-              <th colspan="3">Actions</th>
+              <th colspan="3", class="text-center">Actions</th>
           </tr>
         </thead>
           <tbody>
@@ -107,6 +107,7 @@
                   <td><%= company.address %></td>
                   <td><%= company.entity_type %></td>
                   <td><%= company.activity_status %></td>
+                  <td><%= link_to "Print Stickers", company_taxpayers_path(company, format: :pdf), class:"btn btn-outline-primary btn-sm" %></td>
                   <td><%= link_to "View", company_path(company), class:"btn btn-outline-primary btn-sm" %></td>
                   <% if current_user.access_level == "Admin" or current_user.access_level =="Registrar" %>
                     <td><%= link_to 'Edit', edit_company_path(company), class:"btn btn-outline-primary btn-sm" %></td>
