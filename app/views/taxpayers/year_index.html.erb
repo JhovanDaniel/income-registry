@@ -95,19 +95,30 @@
           </div>
         </div>
       </div>
-    </div>
+    </div></div>
     <br/>
+    
+    <div class="row">
+      <div class="col-lg">
+        <div class="flickr_pagination">
+            <%= will_paginate @taxpayers, :container => false %>
+        </div> 
+      </div>
+      <div class="col-lg">
+        <%= render 'taxpayers/search_form', obj: @q %>
+      </div>
+    </div>
   
       
       <table class="table table-striped  mt-4 ">
         <thead>
           <tr>
-              <th>IRD Number</th>
-              <th>First Name</th>
+              <th><%= sort_link(@q,:ird_no, "IRD Number", hide_indicator: true) %></th>
+              <th><%= sort_link(@q, :first_name, hide_indicator: true) %></th>
               <th>Middle Name</th>
-              <th>Last Name</th>
-              <th>Entity Type</th>
-              <th>Active Status</th>
+              <th><%= sort_link(@q, :last_name, hide_indicator: true) %></th>
+              <th><%= sort_link(@q,:entity_type, hide_indicator: true) %></th>
+              <th><%= sort_link(@q,:activity_status, "Active Status", hide_indicator: true) %></th>
               <th>2017</th>
               <th>2018</th>
               <th>2019</th>
@@ -118,7 +129,7 @@
           </tr>
         </thead>
           <tbody>
-              <% Taxpayer.where(activity_status: 'Active').each do |taxpayer| %>
+              <% @taxpayers.where(activity_status: 'Active').each do |taxpayer| %>
               <tr>
                   <td> <%= taxpayer.ird_no %> </td>
                   <td><%= taxpayer.first_name %></td>
@@ -185,5 +196,4 @@
     <% else %>
       <% redirect_to_index %>
     <% end %>
-    </div>
 </div>

@@ -6,9 +6,8 @@ class CompaniesController < ApplicationController
     
     def index
         @q = Company.ransack(params[:q])
-        @companies = @q.result(distinct: true)
-        @results = @q.result.paginate(page: params[:page], per_page: 15)
-        #@taxpayers = Taxpayer.paginate(page: params[:page], per_page: 15)
+        @results = @q.result(distinct: true)
+        @companies = @results.paginate(page: params[:page], per_page: 15)
     end
     
     def new
