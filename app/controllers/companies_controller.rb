@@ -48,7 +48,7 @@ class CompaniesController < ApplicationController
         respond_to do |format|
             format.html
             format.pdf do
-                render pdf: "file_name", template: "companies/company_taxpayers.html.erb", layout: 'pdf.html',  page_height: '1in', page_width: '2.62in', margin: {top: 5, bottom: 5, left: 0, right: 0}
+                render pdf: "file_name", template: "companies/company_taxpayers.html.erb", layout: 'pdf.html',  page_size: 'A4', margin: {top: 0, bottom: 0, left: 5, right: 5}
             end
         end
     end

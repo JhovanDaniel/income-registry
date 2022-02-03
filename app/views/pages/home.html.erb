@@ -36,7 +36,7 @@
               <%= Taxpayer.where(activity_status: 'Active').count %>
             </div>
             <div class="text-muted">
-              Active Taxpayers
+              <%= link_to 'Active Taxpayers', active_taxpayers_path %>
             </div>
           </div>
           <div class="col">
@@ -44,7 +44,7 @@
               <%= Taxpayer.where(activity_status: 'Inactive').count %>
             </div>
             <div class="text-muted">
-              Inactive Taxpayers
+              <%= link_to 'Inactive Taxpayers', inactive_taxpayers_path %>
             </div>
           </div>
         </div>

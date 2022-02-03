@@ -29,8 +29,15 @@
       </div><br/>
       
     
-      <div class="flickr_pagination">
-          <%= will_paginate @results, :container => false %>
+      <div class="row">
+        <div class="col-lg">
+          <div class="flickr_pagination">
+              <%= will_paginate @taxpayers, :container => false %>
+          </div> 
+        </div>
+        <div class="col-lg">
+          <%= render 'taxpayers/search_form', obj: @q %>
+        </div>
       </div>
   
       
@@ -67,6 +74,11 @@
               <% end %>
           </tbody>
       </table>
+      
+      <div class="flickr_pagination">
+          <%= will_paginate @taxpayers, :container => false %>
+      </div> 
+      
       <% if current_user.access_level == "Admin" or current_user.access_level =="Registrar" %>
         <p><b> <%= link_to "Add new taxpayer", new_taxpayer_path, class:"alert alert-light" %> </b></p>
         <% end %>

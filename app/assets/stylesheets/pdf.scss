@@ -2,6 +2,17 @@
 
 .small-text{
     font-size: 14px;
+    padding: 0;
+    margin: 0;
+    line-height: 1px;
+}
+
+.top-text{
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+    line-height: 10px;
+    padding-bottom: 15px;
 }
 .neg-row{
     margin: -50px !important;
@@ -9,5 +20,10 @@
 }
 
 .page-break { 
-    display:block; clear:both; page-break-after:always; 
+    display:block; 
+    clear:both; 
+    page-break-after:always; 
+    margin: auto;
+    width: 50%;
+    padding: 10px 0;
 }

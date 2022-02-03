@@ -29,34 +29,43 @@
       </div><br/>
       
       
-      <div class="flickr_pagination">
-          <%= will_paginate @results, :container => false %>
+      <div class="row">
+        <div class="col-lg">
+          <div class="flickr_pagination">
+              <%= will_paginate @taxpayers, :container => false %>
+          </div> 
+        </div>
+        <div class="col-lg">
+          <%= render 'taxpayers/search_form', obj: @q %>
+        </div>
       </div>
       
     
       <table class="table table-striped  mt-4">
         <thead>
           <tr>
-              <th>IRD Number</th>
-              <th>Old IRD Number</th>
-              <th>First Name</th>
+              <th><%= sort_link(@q,:ird_no, "IRD Number", hide_indicator: true) %></th>
+              <th><%= sort_link(@q,:company_id, "PAYE Number", hide_indicator: true) %></th>
+              <th><%= sort_link(@q, :first_name, hide_indicator: true) %></th>
               <th>Middle Name</th>
-              <th>Last Name</th>
-              <th>Address</th>
-              <th>Entity Type</th>
-              <th>Active Status</th>
-              <th colspan="3">Actions</th>
+              <th><%= sort_link(@q, :last_name, hide_indicator: true) %></th>
+              <th><%= sort_link(@q, :address, hide_indicator: true) %></th>
+              <th><%= sort_link(@q,:company_id, "Company Name", hide_indicator: true) %></th>
+              <th><%= sort_link(@q,:entity_type, hide_indicator: true) %></th>
+              <th><%= sort_link(@q,:activity_status, "Active Status", hide_indicator: true) %></th>
+              <th colspan="3", class="text-center">Actions</th>
           </tr>
         </thead>
           <tbody>
               <% Taxpayer.where(activity_status: 'Inactive').each do |taxpayer| %>
               <tr>
                   <td> <%= taxpayer.ird_no %> </td>
-                  <td> <%= taxpayer.old_ird_no %></td>
+                  <td> <%= taxpayer.company.paye_no %></td>
                   <td><%= taxpayer.first_name %></td>
                   <td><%= taxpayer.middle_name %></td>
                   <td><%= taxpayer.last_name %></td>
                   <td><%= taxpayer.address %></td>
+                  <td><%= taxpayer.company.name %></td>
                   <td><%= taxpayer.entity_type %></td>
                   <td><%= taxpayer.activity_status %></td>
                   <td><%= link_to "View", taxpayer_path(taxpayer), class:"btn btn-outline-primary btn-sm" %></td>
@@ -67,6 +76,11 @@
               <% end %>
           </tbody>
       </table>
+      
+      <div class="flickr_pagination">
+          <%= will_paginate @taxpayers, :container => false %>
+      </div>
+      
       <% if current_user.access_level == "Admin" or current_user.access_level =="Registrar" %>
         <p><b> <%= link_to "Add new taxpayer", new_taxpayer_path, class:"alert alert-light" %> </b></p>
         <% end %>

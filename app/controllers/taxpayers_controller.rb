@@ -55,6 +55,18 @@ class TaxpayersController < ApplicationController
         @taxpayers = @results.paginate(page: params[:page], per_page: 15)
     end
     
+    def inactive
+        @q = Taxpayer.where(activity_status: 'Inactive').ransack(params[:q])
+        @results = @q.result(distinct: true)
+        @taxpayers = @results.paginate(page: params[:page], per_page: 15)
+    end
+    
+    def active
+        @q = Taxpayer.where(activity_status: 'Active').ransack(params[:q])
+        @results = @q.result(distinct: true)
+        @taxpayers = @results.paginate(page: params[:page], per_page: 15)
+    end
+    
     private
     
     def set_taxpayer

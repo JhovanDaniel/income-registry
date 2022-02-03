@@ -1,15 +1,13 @@
 
 <% @company.taxpayers.each do |company| %>
-    <div class=" d-inline-flex d-flex justify-content-center page-break p-0 m-0 ">
-       <div class="row d-table-row neg-row small-text p-0 m-0">
-           <div class="col d-table-cell py-0"><strong> <%= company.first_name + " " + company.last_name %></strong></div>
+    <div class="page-break ">
+        <p class = 'top-text' > <strong> <%= company.first_name + " " + company.last_name %></strong> </p>
+        <div class="small-text">
+           
+           <p> <%= company.company.paye_no %> </p>
+           <p> <%= company.company.name %> </p>
+           <p> <%= company.address %> </p>
+           <p> <%= company.ird_no %> </p>
         </div>
-        <div class="row d-table-row neg-row small-text">
-            <div class="col d-table-cell py-0"> <%= company.address %></div>
-        </div>
-        <div class="row d-table-row neg-row small-text p-0 m-0">
-           <div class="col w-25 d-table-cell py-0"> PAYE: <%= company.company.paye_no %></div>
-           <div class="col w-25 d-table-cell py-0">  <%= company.ird_no %> </div>
-       </div>
     </div>
 <% end %>
