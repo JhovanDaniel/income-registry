@@ -25,6 +25,8 @@ gem 'ransack'
 gem 'wicked'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'caxlsx'
+gem 'caxlsx_rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

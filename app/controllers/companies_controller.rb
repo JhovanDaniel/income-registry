@@ -45,11 +45,11 @@ class CompaniesController < ApplicationController
     end
     
     def company_taxpayers
+        @taxpayers = @company.taxpayers
+        @companies = Company.all
         respond_to do |format|
             format.html
-            format.pdf do
-                render pdf: "file_name", template: "companies/company_taxpayers.html.erb", layout: 'pdf.html',  page_size: 'A4', margin: {top: 0, bottom: 0, left: 5, right: 5}
-            end
+            format.csv { send_data @taxpayers.to_csv }
         end
     end
     
